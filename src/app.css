@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --nav-height: 45px;
+}
+
+button {
+    border: 1px solid black;
+}
+
+.editable {
+    border: 2px solid transparent;
+    outline: none !important;
+}
+
+.editable:hover {
+    border: 2px solid rgb(193, 193, 193);
+    border-style: dashed;
+}
+
+.editable:focus {
+    outline: none !important;
+    border: 2px solid grey;
+    border-style: dashed;
+}
