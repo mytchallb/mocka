@@ -1,4 +1,6 @@
-# Mokker
+# Mocka
+
+A wireframe builder built with Expresss, Svelte, Vite and Tailwind.
 
 ## Running the app
 
