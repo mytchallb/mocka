@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            background: #767676;
+        }
+        main {
+            width: 1280px;
+            margin: 0 auto;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <nav class="bg-gray-800 px-4 py-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <a href="#" class="text-white font-bold text-xl">My Website</a>
+              </div>
+              <div class="flex items-center">
+                <a href="#" class="text-gray-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="#" class="text-gray-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#" class="text-gray-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+              </div>
+            </div>
+          </nav>
+    </main>
+  
+    <script>
+        // Get a reference to the HTML element you want to convert to an image
+        const element = document.querySelector("main");
+      
+        // Use html2canvas to render the element to a canvas
+        html2canvas(element, {width: 1280}).then(canvas => {
+          // Convert the canvas to a data URL
+          const dataURL = canvas.toDataURL();
+      
+          // Create an image element with the data URL as its source
+          const image = new Image();
+          image.src = dataURL;
+          image.style.width = "100%";
+      
+          // Add the image to the document
+          const main = document.querySelector("main");
+          main.appendChild(image);
+
+        });
+      </script>
+      
+  </body>
+</html>
