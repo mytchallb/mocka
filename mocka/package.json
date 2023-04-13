@@ -1,0 +1,22 @@
+{
+  "name": "mocka",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "saveImages": "node ./build/main.js replace",
+    "saveImagesDark": "node ./build/main.js replace dark",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^3.1.1",
+    "astro": "^2.2.3",
+    "tailwindcss": "^3.3.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^19.8.5"
+  }
+}
