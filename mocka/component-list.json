@@ -1,0 +1,17 @@
+[
+    {
+        "library": "hairylemon",
+        "group": "footer",
+        "name": "left-logo"
+    },
+    {
+        "library": "hairylemon",
+        "group": "menu",
+        "name": "left-menu"
+    },
+    {
+        "library": "hairylemon",
+        "group": "menu",
+        "name": "right-menu"
+    }
+]
