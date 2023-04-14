@@ -1,4 +1,11 @@
+// import component-list.json
+import components from '../../component-list.json'
+
+
 const AppMain = (): JSX.Element => {
+
+    console.log(components)
+
     return (
     <>
     <div className="bg-white p-2 flex">
