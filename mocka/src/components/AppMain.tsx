@@ -7,13 +7,14 @@ import { getLibraryComponents, getLibraries } from '../lib/lib';
 
 const AppMain = (): JSX.Element => {
 
-  const [selectedLibrary,] = useAtom(selectedLibraryAtom);
+  const [selectedLibrary, setSelectedLibrary] = useAtom(selectedLibraryAtom);
   const [, setLibraryList] = useAtom(libraryListAtom);
   const [, setComponentGroupList] = useAtom(componentGroupListAtom);
 
   useEffect(() => {
     setLibraryList(getLibraries());
-    setComponentGroupList(getLibraryComponents(selectedLibrary));
+    setSelectedLibrary(getLibraries()[0]);
+    setComponentGroupList(getLibraryComponents(getLibraries()[0]));
   }, []);
   
   return (

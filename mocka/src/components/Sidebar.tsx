@@ -82,7 +82,7 @@ export default function Sidebar () {
                                     key={index}
                                     src={`/component-previews/${component.library}/${component.group}/${component.name}.webp`}
                                     alt={`${component.name} component preview`}
-                                    className='w-full rounded-lg mb-4 cursor-pointer shadow-sm'
+                                    className='w-full rounded-lg mb-4 cursor-pointer shadow-md'
                                 />
                             )
                         }

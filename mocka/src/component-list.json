@@ -1,5 +1,75 @@
 [
     {
+        "library": "Float UI",
+        "group": "Pricing",
+        "name": "Dark with two plans"
+    },
+    {
+        "library": "Flowbite",
+        "group": "Hero Section",
+        "name": "default"
+    },
+    {
+        "library": "Flowbite",
+        "group": "Hero Section",
+        "name": "image with heading"
+    },
+    {
+        "library": "Flowbite",
+        "group": "Navbars",
+        "name": "default"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Cart",
+        "name": "contained"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Cart",
+        "name": "popup"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Forms",
+        "name": "login highlighted form"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Forms",
+        "name": "login with image"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Forms",
+        "name": "login"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Sections",
+        "name": "content grid"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Sections",
+        "name": "content split grid"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Sections",
+        "name": "content split image"
+    },
+    {
+        "library": "Tailwind UI",
+        "group": "feature",
+        "name": "feature"
+    },
+    {
+        "library": "Tailwind UI",
+        "group": "home",
+        "name": "index"
+    },
+    {
         "library": "hairylemon",
         "group": "footer",
         "name": "left-logo"
@@ -23,15 +93,5 @@
         "library": "hairylemon",
         "group": "menu",
         "name": "right-menu"
-    },
-    {
-        "library": "tailwindcss",
-        "group": "feature",
-        "name": "feature"
-    },
-    {
-        "library": "tailwindcss",
-        "group": "home",
-        "name": "index"
     }
 ]

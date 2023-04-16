@@ -5,7 +5,7 @@ export const sidebarActiveAtom = atom<boolean>(true);
 export const sidebarActiveGroupAtom = atom<number>(0);
 
 export const libraryListAtom = atom<string[]>([]);
-export const selectedLibraryAtom = atom<string>("hairyLemon");
+export const selectedLibraryAtom = atom<string>("");
 
 export const componentGroupListAtom = atom<ComponentListItem[]>([]);
 

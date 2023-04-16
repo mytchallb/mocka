@@ -1,5 +1,15 @@
 # Astro Starter Kit: Basics
 
+
+### To do
+
+Also save images for mobile
+Add dark + light to output folder to easily switch between modes
+How to show code?
+
+
+---
+
 *Build*
 
 The build folder is where the build scripts go
