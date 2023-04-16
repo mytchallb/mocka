@@ -1,10 +1,10 @@
 ---
-const { group, component } = Astro.params;
+const { library, group, component } = Astro.params;
 
 let Component: any = null;
 
 try {
-    const module = await import(`../../../../libraries/${group}/${component}.astro`);
+    const module = await import(`../../../../../libraries/${library}/${group}/${component}.astro`);
     Component = module.default;
 } catch (err) {
     console.error(err);

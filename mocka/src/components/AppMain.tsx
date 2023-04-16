@@ -1,40 +1,33 @@
-// import component-list.json
-import components from '../../component-list.json'
+import { useEffect } from 'react';
+import Sidebar from './Sidebar';
 
+import { useAtom } from 'jotai';
+import {componentGroupListAtom, libraryListAtom, selectedLibraryAtom } from '../lib/store';
+import { getLibraryComponents, getLibraries } from '../lib/lib';
 
 const AppMain = (): JSX.Element => {
 
-    console.log(components)
+  const [selectedLibrary,] = useAtom(selectedLibraryAtom);
+  const [, setLibraryList] = useAtom(libraryListAtom);
+  const [, setComponentGroupList] = useAtom(componentGroupListAtom);
 
-    return (
+  useEffect(() => {
+    setLibraryList(getLibraries());
+    setComponentGroupList(getLibraryComponents(selectedLibrary));
+  }, []);
+  
+  return (
     <>
-    <div className="bg-white p-2 flex">
-    <div className="bg-gray-200 p-2 rounded-lg w-[60vw]">
-        <div id="content" className="">
-            <div id="sidebar">
-                <div id="nav" className="flex justify-between">
-                    <p className="font-bold text-2xl">Mocka</p>
-                    <button>Toggle</button>
-                </div>
-                <div id="searchbar">
-
-                </div>
-                <div id="component-list">
-
-                </div>
-
-            </div>
-            <div id="components">
-
+      <div className="p-2 flex h-full">
+        <Sidebar/>
+        <div id="display-master" className="min-w-[40vw] bg-white px-4">
+            <div id="display" className="h-full rounded-lg border-dashed border-2 border-gray-300">
+            
             </div>
         </div>
-        
-    </div>
-    <div className="w-[40vw] bg-white">
-
-        </div>
-    </div>
-    </>);
-}
+      </div>
+    </>
+  );
+};
 
 export default AppMain;

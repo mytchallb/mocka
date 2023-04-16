@@ -1,4 +1,3 @@
-// screenshot.js
 import fs from 'fs';
 import path from 'path';
 import puppeteer from 'puppeteer';
@@ -7,20 +6,41 @@ console.log('Building screenshots...');
 
 // Traverse the directory and build an array of URLs
 const librariesPath = 'libraries';
-const groups = fs.readdirSync(librariesPath);
+const libraryNames = fs.readdirSync(librariesPath);
 
 const urls = [];
+const components = [];
 
-for (const group of groups) {
-  const componentsPath = path.join(librariesPath, group);
-  const components = fs.readdirSync(componentsPath);
+function generateJSONFile() {
+  const outputPath = path.join(process.cwd(), 'src', 'component-list.json');
+  fs.writeFileSync(outputPath, JSON.stringify(components, null, 4));
+  console.log('JSON file saved at', outputPath);
+}
 
-  for (const component of components) {
-    const url = `http://127.0.0.1:3000/preview/${group}/${path.basename(component, '.astro')}`;
-    // console.log("checking url: ", url);
-    urls.push(url);
+for (const libraryName of libraryNames) {
+  const groupsPath = path.join(librariesPath, libraryName);
+  const groupNames = fs.readdirSync(groupsPath);
+
+  for (const groupName of groupNames) {
+    const componentsPath = path.join(groupsPath, groupName);
+    const componentFiles = fs.readdirSync(componentsPath);
+
+    for (const componentFile of componentFiles) {
+      const componentName = path.basename(componentFile, '.astro');
+      const url = `http://127.0.0.1:3000/preview/${libraryName}/${groupName}/${componentName}`;
+      urls.push(url);
+
+      components.push({
+        library: libraryName,
+        group: groupName,
+        name: componentName,
+      });
+    }
   }
 }
+
+generateJSONFile();
+
 
 const replace = process.argv.includes('replace');
 const darkMode = process.argv.includes('dark');
@@ -40,7 +60,7 @@ let skippedCount = 0;
   const page = await browser.newPage();
 
   // Set viewport size
-  await page.setViewport({ width: 1920, height: 1080 });
+  await page.setViewport({ width: 1440, height: 1080 });
   if (darkMode) await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
 
   // Loop through the URLs
@@ -57,17 +77,20 @@ let skippedCount = 0;
 
     // console.log(boundingBox);
 
-    // Take a screenshot of the component
-    const groupName = url.split('/')[5];
-    const fileName = path.basename(url).split('/').pop() + '.webp';
-    const groupOutputPath = path.join(outputDirectory, groupName);
+    // Get the library, group, and component name from the URL
+    const urlSegments = url.split('/');
+    const libraryName = urlSegments[4];
+    const groupName = urlSegments[5];
+    const componentName = urlSegments[6];
+
+    // Create the output path
+    const groupOutputPath = path.join(outputDirectory, libraryName, groupName);
 
     if (!fs.existsSync(groupOutputPath)) {
-      fs.mkdirSync(groupOutputPath);
+      fs.mkdirSync(groupOutputPath, { recursive: true });
     }
 
-    const imagePath = path.join(groupOutputPath, fileName);
-
+    const imagePath = path.join(groupOutputPath, `${componentName}.webp`);
     // console.log(`Image path: ${imagePath}`);
 
     if (!replace && fs.existsSync(imagePath)) {
