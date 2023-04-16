@@ -20,12 +20,13 @@ const AppMain = (): JSX.Element => {
     <>
       <div className="p-2 flex h-full">
         <Sidebar/>
-        <div id="display-master" className="min-w-[40vw] bg-white px-4">
+        <div id="display-master" className="min-w-[40vw] flex-1 bg-white px-4">
             <div id="display" className="h-full rounded-lg border-dashed border-2 border-gray-300">
             
             </div>
         </div>
       </div>
+      
     </>
   );
 };

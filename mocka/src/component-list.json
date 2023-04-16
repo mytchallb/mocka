@@ -26,8 +26,8 @@
     },
     {
         "library": "tailwindcss",
-        "group": "footer",
-        "name": "footer"
+        "group": "feature",
+        "name": "feature"
     },
     {
         "library": "tailwindcss",

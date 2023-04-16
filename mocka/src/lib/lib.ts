@@ -13,7 +13,7 @@ export const getLibraries = () => {
 }
 
 export const getLibraryComponents = (libraryToUse: string) => {
-    const a = components.reduce((acc: ComponentListItem[], { group, library }) => {
+    const results = components.reduce((acc: ComponentListItem[], { group, library }) => {
         if (library.toLowerCase() === libraryToUse.toLowerCase()) {
             const found = acc.find((item: ComponentListItem) => item.name === group);
             if (found) {
@@ -24,6 +24,16 @@ export const getLibraryComponents = (libraryToUse: string) => {
         }
         return acc;
     }, []);
-    console.log("a", a);
-    return a;
+    
+
+    // Sort array of objects alphabetically based on name property
+    results.sort((a: ComponentListItem, b: ComponentListItem) => {
+        const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
+
+    return results;
 }
