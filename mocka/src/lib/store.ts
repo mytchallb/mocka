@@ -9,4 +9,6 @@ export const selectedLibraryAtom = atom<string>("");
 
 export const componentGroupListAtom = atom<ComponentListItem[]>([]);
 
+export const darkModeAtom = atom<boolean>(false);
+
 // library > group > component
