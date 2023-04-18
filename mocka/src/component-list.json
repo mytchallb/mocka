@@ -21,6 +21,61 @@
     },
     {
         "library": "Hyper UI",
+        "group": "Announcement",
+        "name": "simple"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Announcement",
+        "name": "slider"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Announcement",
+        "name": "with action"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Announcement",
+        "name": "with close"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "base"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "bordered"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "floating"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "gradient border animated"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "gradient border"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "modern"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Blog Cards",
+        "name": "simple"
+    },
+    {
+        "library": "Hyper UI",
         "group": "Cart",
         "name": "contained"
     },
@@ -28,6 +83,11 @@
         "library": "Hyper UI",
         "group": "Cart",
         "name": "popup"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Checkout",
+        "name": "summary form"
     },
     {
         "library": "Hyper UI",
@@ -46,8 +106,78 @@
     },
     {
         "library": "Hyper UI",
+        "group": "Login Register Form",
+        "name": "split with content"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Login Register Form",
+        "name": "split with image"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Pagination",
+        "name": "buttons"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Pagination",
+        "name": "fraction"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Pagination",
+        "name": "input with background"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Pagination",
+        "name": "input"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "grid stacked checked"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "grid stacked"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "simple stacked with check"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "simple stacked"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "variants colors"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "variants with check"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Radio Group",
+        "name": "variants"
+    },
+    {
+        "library": "Hyper UI",
         "group": "Sections",
         "name": "content grid"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Sections",
+        "name": "content link grid cta"
     },
     {
         "library": "Hyper UI",
@@ -57,7 +187,197 @@
     {
         "library": "Hyper UI",
         "group": "Sections",
+        "name": "content split image content"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Sections",
         "name": "content split image"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Sections",
+        "name": "split image content overlap"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Side Menu",
+        "name": "accordian"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Side Menu",
+        "name": "icons with titles"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Stats",
+        "name": "floating stat"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Stats",
+        "name": "icon stat"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Stats",
+        "name": "simple icon"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Stats",
+        "name": "simple stat"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Stats",
+        "name": "stacked stat icon"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Stats",
+        "name": "stacked with stat"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Steps",
+        "name": "closed on complete"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Steps",
+        "name": "group text icon"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Steps",
+        "name": "progress bar description"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Steps",
+        "name": "progress bar text icon"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Steps",
+        "name": "timeline"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Steps",
+        "name": "with check icons"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Tables",
+        "name": "checkbox rows"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Tables",
+        "name": "simple with action"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Tables",
+        "name": "simple with border"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Tables",
+        "name": "simple with odd-even"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Tables",
+        "name": "simple"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Tables",
+        "name": "sticky checkbox rows"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Testimonials",
+        "name": "card author"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Testimonials",
+        "name": "content blocks"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Testimonials",
+        "name": "masonry grid"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Testimonials",
+        "name": "stacked content grid"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Toggle",
+        "name": "apple"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Toggle",
+        "name": "material"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Toggle",
+        "name": "simple with icons"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Toggle",
+        "name": "simple"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "accordian"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "border split"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "heading split"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "icon accordian"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "icon branded"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "simple"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "with badge"
+    },
+    {
+        "library": "Hyper UI",
+        "group": "Vertical Menu",
+        "name": "with icon badge"
     },
     {
         "library": "Tailwind UI",

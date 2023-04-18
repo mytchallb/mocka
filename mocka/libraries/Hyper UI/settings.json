@@ -1,0 +1,20 @@
+
+{
+    "radio group": [
+        {
+            "name": "variants colors",
+            "div_width": 250,
+            "div_height": 120,
+            "screenshot_width": 250,
+            "screenshot_height": 120,
+            "preview_size": "sm"
+        },
+        {
+            "name": "variants without colors",
+            "screenshot_width": 250,
+            "screenshot_height": 120,
+            "div_width": 300,
+            "div_height": 80
+        }
+    ]
+}

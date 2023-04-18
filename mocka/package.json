@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "saveImages": "node ./build/main.js replace",
+    "saveImages": "node ./build/main.js",
     "saveImagesDark": "node ./build/main.js replace dark",
     "dev": "astro dev",
     "start": "astro dev",

@@ -17,12 +17,56 @@ function generateJSONFile() {
   console.log('JSON file saved at', outputPath);
 }
 
+
+async function applyComponentSettings(page, libraryName, groupName, componentName) {
+  const settingsPath = path.join(librariesPath, libraryName, 'settings.json');
+  console.log("settingsPath", settingsPath);
+  if (fs.existsSync(settingsPath)) {
+    console.log("settingsPath", settingsPath);
+    const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'));
+    const matchingSetting = settings[groupName.toLowerCase()]?.find(
+      (setting) => setting.name.toLowerCase() === componentName.toLowerCase()
+    );
+    console.log("matchingSetting", matchingSetting);
+    if (matchingSetting) {
+      const { div_width, div_height, screenshot_width, screenshot_height } = matchingSetting;
+      if (div_width && div_height) {
+        await page.addStyleTag({ content: `.center { padding:2px; width: ${div_width}px; height: ${div_height}px; display: flex; align-items: center; justify-content: center; }` });
+        await page.evaluate(() => {
+          const mainElement = document.querySelector('#main');
+          const container = document.createElement('div');
+          container.className = 'center';
+          mainElement.parentNode.insertBefore(container, mainElement);
+          container.appendChild(mainElement);
+        });
+      }
+      return { screenshot_width, screenshot_height };
+    }
+  }
+  return null;
+}
+
+
+
 for (const libraryName of libraryNames) {
   const groupsPath = path.join(librariesPath, libraryName);
+  const stat = fs.statSync(groupsPath);
+
+  //Check to ensure you're only processing directories
+  if (!stat.isDirectory()) {
+    continue;
+  }
   const groupNames = fs.readdirSync(groupsPath);
 
   for (const groupName of groupNames) {
     const componentsPath = path.join(groupsPath, groupName);
+    const stat = fs.statSync(componentsPath);
+
+    // Add this check to ensure you're only processing directories
+    if (!stat.isDirectory()) {
+      continue;
+    }
+
     const componentFiles = fs.readdirSync(componentsPath);
 
     for (const componentFile of componentFiles) {
@@ -65,18 +109,6 @@ let skippedCount = 0;
 
   // Loop through the URLs
   for (const url of urls) {
-    // Navigate to the webpage
-    await page.goto(url);
-
-    // Wait for the component to load
-    await page.waitForSelector('#main');
-
-    // Get the bounding box of the component you want to capture
-    const component = await page.$('#main');
-    const boundingBox = await component.boundingBox();
-
-    // console.log(boundingBox);
-
     // Get the library, group, and component name from the URL
     const urlSegments = url.split('/');
     const libraryName = urlSegments[4];
@@ -85,10 +117,6 @@ let skippedCount = 0;
 
     // Create the output path
     const groupOutputPath = path.join(outputDirectory, libraryName, groupName);
-
-    if (!fs.existsSync(groupOutputPath)) {
-      fs.mkdirSync(groupOutputPath, { recursive: true });
-    }
 
     const imagePath = path.join(groupOutputPath, `${componentName}.webp`);
     // console.log(`Image path: ${imagePath}`);
@@ -99,18 +127,47 @@ let skippedCount = 0;
       continue;
     }
 
+
+    // Navigate to the webpage
+    await page.goto(url);
+
+    // Wait for the component to load
+    await page.waitForSelector('#main');
+
+    // Get the bounding box of the component you want to capture
+    const component = await page.$('#main');
+    const boundingBox = await component.boundingBox();
+
+    // Set the viewport size to match the component size
+  // await page.setViewport({
+  //   width: Math.ceil(boundingBox.width),
+  //   height: Math.ceil(boundingBox.height),
+  // });
+
+    // console.log(boundingBox);    
+
+    // Apply settings from the settings.json file
+    const settings = await applyComponentSettings(page, libraryName, groupName, componentName);
+    
+
+    if (!fs.existsSync(groupOutputPath)) {
+      fs.mkdirSync(groupOutputPath, { recursive: true });
+    }
+
+    
+
     await page.screenshot({
       path: imagePath,
       type: 'webp',
       clip: {
         x: boundingBox.x,
         y: boundingBox.y,
-        width: boundingBox.width,
-        height: boundingBox.height,
+        width: settings?.screenshot_width ?? (boundingBox.width > 0 ? boundingBox.width : 1920),
+        height: settings?.screenshot_height ?? (boundingBox.height > 0 ? boundingBox.height : 1080),
       },
     });
     createdCount++;
-    //console.log(`Image saved at ${imagePath}`);
+    console.log(`Image saved at ${imagePath}`);
   }
 
   // Close the browser

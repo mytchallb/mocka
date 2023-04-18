@@ -24,7 +24,7 @@ export default function Sidebar () {
         <>
         <div id="sidebar-master" className={`bg-gray-100 p-2 rounded-lg h-full flex ${(sidebarActive) ? 'flex-1' : ''}`}>
           <div id="content" className="flex h-full">
-            <div id="sidebar" className='w-[250px] h-full pr-4 border-r-2 border-gray-200 p-4'>
+            <div id="sidebar" className='w-[250px] h-full pr-4 border-r-2 border-gray-200 p-4 flex flex-col'>
               <div id="nav" className="flex items-center justify-between mb-10">
                 <p className="font-bold text-2xl">
                     <a href="/app">
@@ -36,8 +36,6 @@ export default function Sidebar () {
                 </button>
               </div>
               <div id="searchbar">
-
-
                 <div className="relative inline-block w-full">
                     <select
                         name=""
@@ -60,16 +58,18 @@ export default function Sidebar () {
 
 
               </div>
-                {componentGroupList.map((item, index) => {
-                    return (
-                        <div className={`text-gray-700 flex items-center justify-between cursor-pointer px-4 py-2 rounded-lg my-2 ${sidebarActiveGroup==index ? 'bg-gray-300 font-bold' : ''}`} key={index}
-                        onMouseEnter={() => setSidebarActiveGroup(index)}
-                        >
-                            <p className='capitalize text-lg '>{item.name}</p>
-                            <div className={`flex items-center justify-center h-[30px] w-[38px] font-bold rounded-lg ${sidebarActiveGroup==index ? 'bg-white' : 'bg-gray-300'}`}>{item.count}</div>
-                        </div>
-                    )
-                })}
+                <div className='flex-1 overflow-y-auto'>
+                    {componentGroupList.map((item, index) => {
+                        return (
+                            <div className={`text-gray-700 flex items-center justify-between cursor-pointer px-4 py-2 rounded-lg my-2 ${sidebarActiveGroup==index ? 'bg-gray-300 font-bold' : ''}`} key={index}
+                            onMouseEnter={() => setSidebarActiveGroup(index)}
+                            >
+                                <p className='capitalize text-lg '>{item.name}</p>
+                                <div className={`flex items-center justify-center h-[30px] w-[38px] font-bold rounded-lg ${sidebarActiveGroup==index ? 'bg-white' : 'bg-gray-300'}`}>{item.count}</div>
+                            </div>
+                        )
+                    })}
+                </div>
               </div>
             </div>
             <div id="components" className={`flex-1 h-full p-4 ${(sidebarActive) ? '' : 'hidden'}`}>
