@@ -1,14 +1,16 @@
-import { useEffect } from 'react';
-import Sidebar from './Sidebar';
+import { useEffect } from "react";
+import Sidebar from "./Sidebar";
 
-import { useAtom } from 'jotai';
-import {componentGroupListAtom, libraryListAtom, selectedLibraryAtom, darkModeAtom } from '../lib/store';
-import { getLibraryComponents, getLibraries } from '../lib/lib';
-
-
+import { useAtom } from "jotai";
+import {
+  componentGroupListAtom,
+  libraryListAtom,
+  selectedLibraryAtom,
+  darkModeAtom,
+} from "../lib/store";
+import { getLibraryComponents, getLibraries } from "../lib/lib";
 
 const AppMain = (): JSX.Element => {
-
   const [selectedLibrary, setSelectedLibrary] = useAtom(selectedLibraryAtom);
   const [, setLibraryList] = useAtom(libraryListAtom);
   const [, setComponentGroupList] = useAtom(componentGroupListAtom);
@@ -21,7 +23,7 @@ const AppMain = (): JSX.Element => {
   }, []);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
+    setDarkMode(!darkMode);
     // const darkModeEnabled = html.classList.contains('dark');
     // if (darkModeEnabled) {
     //     html.classList.remove('dark');
@@ -30,13 +32,14 @@ const AppMain = (): JSX.Element => {
     //     html.classList.add('dark');
     //     localStorage.setItem('darkModeEnabled', true);
     // }
-  }
-  
+  };
+
   return (
     <>
-      <div className="p-2 flex h-full">
-        <Sidebar/>
-        <div id="display-master" className="min-w-[40vw] flex-1 bg-white px-4 h-full flex flex-col">
+      <div className="flex h-full">
+        <Sidebar />
+
+        {/* <div id="display-master" className="min-w-[40vw] flex-1 bg-white px-4 h-full flex flex-col">
             <div className='bg-gray-100 dark:bg-gray-800 rounded-lg p-2'>
                 <button className="h-[30px] w-[30px]" onClick={() => {toggleDarkMode()}}>
                     {darkMode ? (
@@ -51,9 +54,8 @@ const AppMain = (): JSX.Element => {
             <div id="display" className="flex-1 rounded-lg border-dashed border-2 border-gray-300">
             
             </div>
-        </div>
+        </div> */}
       </div>
-      
     </>
   );
 };

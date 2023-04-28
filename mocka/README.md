@@ -1,25 +1,20 @@
 # Astro Starter Kit: Basics
 
-
 ### To do
 
 Also save images for mobile
 Add dark + light to output folder to easily switch between modes
 How to show code?
 
-
 ---
 
-*Build*
+_Build_
 
 The build folder is where the build scripts go
 
 The `src/pages/preview/[group]/[component].astro` file is a live previewer for when you are building components, just run `npm run dev`.
 
 To build screenshots of each component, make sure the web server is running, and run `npm run saveImages` (which has default flag to true for overwriting previous images) or `npm run saveImagesDark`.
-
-
-
 
 ## 🚀 Project Structure
 

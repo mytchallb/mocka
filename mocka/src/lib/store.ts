@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import type { ComponentListItem} from './types';
+import type { ComponentListItem } from "./types";
 
 export const sidebarActiveAtom = atom<boolean>(true);
 export const sidebarActiveGroupAtom = atom<number>(0);
